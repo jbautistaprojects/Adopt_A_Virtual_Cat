@@ -6,26 +6,10 @@ fetchCatTags();
 });
 
 //Functions for fetching API information and rendering it to the DOM
-function fetchCat() {
-    fetch("https://cataas.com/api/cats")
-  .then(resp => resp.json())
-  .then((json) => renderCat(json));
-
-}
-
 function fetchCatTags() {
     fetch("https://cataas.com/api/tags")
     .then(resp => resp.json())
     .then((json) => renderForm(json))
-}
-
-function renderCat(cats) {
-    appendCatImg = document.getElementById('pickCat')
-    cats.forEach(cats => {
-        const imgCats = document.createElement('img');
-        imgCats.src = `https://cataas.com/cat/${cats.id}`;
-        appendCatImg.appendChild(imgCats);
-    })
 }
 
 function renderForm(tags) {
@@ -38,6 +22,38 @@ function renderForm(tags) {
     })
 }
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   
-// });
+
+
+function fetchCat() {
+    fetch("https://cataas.com/api/cats")
+  .then(resp => resp.json())
+  .then((json) => renderCat(json));
+}
+
+function renderCat(cats) {
+    appendCatImg = document.getElementById('pickCat')
+    const selectTag = document.getElementById('catTags').value;
+    console.log(cats);
+    if (selectTag === 'See All Cats') {
+    cats.forEach(cats => {
+    const imgCats = document.createElement('img');
+        imgCats.src = `https://cataas.com/cat/${cats.id}`;
+        appendCatImg.appendChild(imgCats);
+    })}
+    else {
+         let selectedCats = 
+         cats.filter(cat => {
+            return cat.tags.includes('cute');
+
+         })
+         selectedCats.forEach(selectedCats => {
+            const imgCats = document.createElement('img');
+                imgCats.src = `https://cataas.com/cat/${selectedCats.id}`;
+                appendCatImg.appendChild(imgCats);
+            })
+         console.log(selectedCats)
+        }
+        
+    }
+
+    
