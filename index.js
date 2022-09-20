@@ -30,6 +30,7 @@ function fetchCat() {
   .then((json) => renderCat(json));
 }
 
+//This function renders cat pics to the DOM and allows the user to filter by tags set to the cats by the API
 function renderCat(cats) {
     appendCatImg = document.getElementById('pickCat')
     const selectTag = document.getElementById('catTags').value;
@@ -38,6 +39,7 @@ function renderCat(cats) {
     cats.forEach(cats => {
     const imgCats = document.createElement('img');
         imgCats.src = `https://cataas.com/cat/${cats.id}`;
+        imgCats.id = `${cats.id}`
         appendCatImg.appendChild(imgCats);
     })}
     else {
@@ -48,12 +50,16 @@ function renderCat(cats) {
          })
          selectedCats.forEach(selectedCats => {
             const imgCats = document.createElement('img');
+                imgCats.id = selectedCats.id
                 imgCats.src = `https://cataas.com/cat/${selectedCats.id}`;
                 appendCatImg.appendChild(imgCats);
+
             })
          console.log(selectedCats)
         }
         
     }
 
-    
+//function select&Delete () {
+
+//}
