@@ -40,8 +40,11 @@ function renderCat(cats) {
     const imgCats = document.createElement('img');
         imgCats.src = `https://cataas.com/cat/${cats.id}`;
         imgCats.id = `${cats.id}`
+        imgCats.addEventListener('click', selectAndDelete);
         appendCatImg.appendChild(imgCats);
+
     })}
+    
     else {
          let selectedCats = 
          cats.filter(cat => {
@@ -52,6 +55,7 @@ function renderCat(cats) {
             const imgCats = document.createElement('img');
                 imgCats.id = selectedCats.id
                 imgCats.src = `https://cataas.com/cat/${selectedCats.id}`;
+                imgCats.addEventListener('click', selectAndDelete);
                 appendCatImg.appendChild(imgCats);
 
             })
@@ -59,7 +63,10 @@ function renderCat(cats) {
         }
         
     }
-
-//function select&Delete () {
-
-//}
+//Sends user selected picture to the catCare Section and Deletes the pick Cat section
+function selectAndDelete (e) {
+    const adoptedCat = e.target;
+    const sendToCatCare = document.getElementById('catCare');
+    sendToCatCare.appendChild(adoptedCat);
+    document.getElementById('pickCat').remove();
+}
