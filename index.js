@@ -102,7 +102,17 @@ submitCatGamesBtn = document.getElementById('getThisGame')
 submitCatGamesBtn.addEventListener('click', loadGame);
 
 function loadGame(e) {
+    document.querySelector('.middle').style.visibility = 'hidden';
+    //console.log(hideName);
+    
     const pickGame = document.getElementById('catGames').value
     console.log(pickGame)
+    if (pickGame === 'playWithCat'){
+        playWithCat()
+    }
+}
+
+function playWithCat(){
+    console.log('Play With Cat Selected!')
 }
 
