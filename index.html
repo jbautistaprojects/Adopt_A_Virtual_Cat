@@ -19,14 +19,23 @@
             
         </div>
         <div id = catCare hidden>
-            <form id="interactWithCat" action="" method="POST">
+            <form id="NameCat" action="" method="POST">
                 <label for="NameTheCat">Name your cat</label>
                 <input type="text" id="NameTheCat" name="Name the cat" placeholder="Fluffy">
                 <input type="submit" value="CatName">
               </form>
-            <div id = playWithCat></div>
-            <div id = feedCat></div>
-            <div id = petCat></div>
+            <div id = interactWithCat hidden>
+                <select name ="PickCatGame" id = "catGames">
+                    <option value = "petTheCat">Pet The Cat</option>
+                    <option value="playWithCat">Play With Cat</option>
+                    <option value="feedCat">Feed The Cat</option>
+                </select>
+                <button id = "getThisGame" type="button">Pick This Game</button>
+                <div id = playWithCat></div>
+                <div id = feedCat></div>
+                <div id = petCat></div>
+            </div>
+            
         </div>
         <script src="./index.js"></script>
     </body>

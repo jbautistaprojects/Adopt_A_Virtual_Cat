@@ -35,7 +35,8 @@ function fetchCat() {
 function renderCat(cats) {
     appendCatImg = document.getElementById('pickCat')
     const selectTag = document.getElementById('catTags').value;
-    console.log(cats);
+    //console.log('JSONObj', cats);
+    //console.log('Selected Value', selectTag);
     if (selectTag === 'See All Cats') {
     cats.forEach(cats => {
     const imgCats = document.createElement('img');
@@ -45,7 +46,7 @@ function renderCat(cats) {
         appendCatImg.appendChild(imgCats);
 
     })}
-    
+   //renders cat images by tag 
     else {
          let selectedCats = 
          cats.filter(cat => {
@@ -60,7 +61,7 @@ function renderCat(cats) {
                 appendCatImg.appendChild(imgCats);
 
             })
-         console.log(selectedCats)
+         //console.log('filtered cats', selectedCats)
         }
         
     }
@@ -79,8 +80,8 @@ function selectAndDelete (e) {
 
 //This Section is for the catCare div
 
-//get the cat name value from the sumbit form and 
-const nameCatForm = document.getElementById('interactWithCat')
+//get the cat name value from the sumbit form, delete the submit form and unhide the interactive section
+const nameCatForm = document.getElementById('NameCat')
 nameCatForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const nameCat = document.getElementById('NameTheCat').value;
@@ -92,7 +93,16 @@ nameCatForm.addEventListener("submit", (e) => {
     const catImgForName = document.getElementById('catImgId')
     catImgForName.appendChild(imgOverlay);
     imgOverlay.appendChild(imgTextName);
-    document.getElementById('interactWithCat').remove();
+    document.getElementById('NameCat').remove();
+    document.getElementById('interactWithCat').hidden = false;
 })
 
 //this section will create the play section.
+submitCatGamesBtn = document.getElementById('getThisGame')
+submitCatGamesBtn.addEventListener('click', loadGame);
+
+function loadGame(e) {
+    const pickGame = document.getElementById('catGames').value
+    console.log(pickGame)
+}
+
