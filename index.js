@@ -68,11 +68,20 @@ function renderCat(cats) {
 function selectAndDelete (e) {
     const adoptedCat = e.target;
     const sendToCatCare = document.getElementById('catCare');
-    sendToCatCare.appendChild(adoptedCat);
+    const createImgDiv = document.createElement('div');
+    createImgDiv.id = "catImg"
+    sendToCatCare.appendChild(createImgDiv)
+    createImgDiv.appendChild(adoptedCat);
     document.getElementById('pickCat').remove();
     document.getElementById('catCare').hidden = false;
 }
 
-//This Section is for the catCare
+//This Section is for the catCare div
 
-//const nameCat = 
+//get the cat name value from the sumbit form and 
+const nameCatForm = document.getElementById('interactWithCat')
+nameCatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nameCat = document.getElementById('NameTheCat').value;
+
+})
