@@ -18,9 +18,13 @@
             <button id = "randCatButton" type="button">Select A Cat</button>
             
         </div>
-        <div id = catCare>
-            <!-- code for acring for cat after picking goes here -->
-            <div id = walkCat></div>
+        <div id = catCare hidden>
+            <form id="interactWithCat" action="" method="POST">
+                <label for="NameTheCat">Name your cat</label>
+                <input type="text" id="NameTheCat" name="Name the cat" placeholder="Fluffy">
+                <input type="submit" value="CatName">
+              </form>
+            <div id = playWithCat></div>
             <div id = feedCat></div>
             <div id = petCat></div>
         </div>

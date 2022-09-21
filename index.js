@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 let randCatBtn = document.getElementById("randCatButton");
 randCatBtn.addEventListener('click', fetchCat);
+document.getElementById('catCare').hidden = true;
 fetchCatTags();
 });
 
@@ -69,4 +70,9 @@ function selectAndDelete (e) {
     const sendToCatCare = document.getElementById('catCare');
     sendToCatCare.appendChild(adoptedCat);
     document.getElementById('pickCat').remove();
+    document.getElementById('catCare').hidden = false;
 }
+
+//This Section is for the catCare
+
+//const nameCat = 
