@@ -86,7 +86,7 @@ nameCatForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const nameCat = document.getElementById('NameTheCat').value;
     const imgOverlay = document.createElement('div');
-    imgOverlay.className = 'overlay'
+    imgOverlay.className = 'middle'
     const imgTextName = document.createElement('div')
     imgTextName.innerText = `Hi, my name is ${nameCat}`;
     imgTextName.className = 'text'
