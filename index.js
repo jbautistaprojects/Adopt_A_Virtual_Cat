@@ -69,7 +69,8 @@ function selectAndDelete (e) {
     const adoptedCat = e.target;
     const sendToCatCare = document.getElementById('catCare');
     const createImgDiv = document.createElement('div');
-    createImgDiv.id = "catImg"
+    createImgDiv.className = 'catImg'
+    createImgDiv.id = 'catImgId'
     sendToCatCare.appendChild(createImgDiv)
     createImgDiv.appendChild(adoptedCat);
     document.getElementById('pickCat').remove();
@@ -83,5 +84,15 @@ const nameCatForm = document.getElementById('interactWithCat')
 nameCatForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const nameCat = document.getElementById('NameTheCat').value;
-
+    const imgOverlay = document.createElement('div');
+    imgOverlay.className = 'overlay'
+    const imgTextName = document.createElement('div')
+    imgTextName.innerText = `Hi, my name is ${nameCat}`;
+    imgTextName.className = 'text'
+    const catImgForName = document.getElementById('catImgId')
+    catImgForName.appendChild(imgOverlay);
+    imgOverlay.appendChild(imgTextName);
+    document.getElementById('interactWithCat').remove();
 })
+
+//this section will create the play section.
