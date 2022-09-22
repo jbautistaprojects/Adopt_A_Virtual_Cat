@@ -70,7 +70,7 @@ function selectAndDelete (e) {
     const adoptedCat = e.target;
     const sendToCatCare = document.getElementById('catCare');
     const createImgDiv = document.createElement('div');
-    
+    adoptedCat.removeEventListener('click', selectAndDelete);
     createImgDiv.className = 'catImg'
     createImgDiv.id = 'catImgId'
     sendToCatCare.appendChild(createImgDiv)
