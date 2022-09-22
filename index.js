@@ -108,11 +108,37 @@ function loadGame(e) {
     //console.log(hideName);
     
     const pickGame = document.getElementById('catGames').value
-    console.log(pickGame)
+    //console.log(pickGame)
     if (pickGame === 'playWithCat'){
         playWithCat()
     }
+    else if (pickGame === 'petTheCat'){
+        const petTheCatImg = document.getElementById("catImgId").querySelector('img');
+        petTheCatImg.addEventListener('click', petTheCat)
+        
+            
+        
+    }
 }
+
+
+function petTheCat(e) {
+    //console.log('pet The Cat')
+    const petCatImage = document.getElementById("catImgId");
+            
+            textloc1 = document.createElement('div');
+            textloc1.className = "top-left";
+            textloc1.textContent = 'PURR';
+            textloc2 = document.createElement('div')
+            textloc2.className = "centered"
+            textloc2.textContent = 'PURR'
+            petCatImage.appendChild(textloc1);
+            setTimeout(()=>petCatImage.appendChild(textloc2), 1000);
+            setTimeout(()=> textloc1.textContent = '', 2000);
+            setTimeout(()=> textloc2.textContent = '', 3500);
+
+}
+
     function playWithCat() {
         const inputImage = document.getElementById("catImgId").querySelector('img');
         const outputImage = document.createElement('canvas');
@@ -140,4 +166,3 @@ function loadGame(e) {
             document.getElementById('catImgId').hidden = false;
         }
     }
-
