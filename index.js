@@ -1,7 +1,7 @@
 //fetch cat from API Server
 document.addEventListener('DOMContentLoaded', function() {
-let randCatBtn = document.getElementById("randCatButton");
-randCatBtn.addEventListener('click', fetchCat);
+let renderCatBtn = document.getElementById("renderCatButton");
+renderCatBtn.addEventListener('click', fetchCat);
 document.getElementById('catCare').hidden = true;
 fetchCatTags();
 });
@@ -70,12 +70,14 @@ function selectAndDelete (e) {
     const adoptedCat = e.target;
     const sendToCatCare = document.getElementById('catCare');
     const createImgDiv = document.createElement('div');
+    
     createImgDiv.className = 'catImg'
     createImgDiv.id = 'catImgId'
     sendToCatCare.appendChild(createImgDiv)
     createImgDiv.appendChild(adoptedCat);
     document.getElementById('pickCat').remove();
     document.getElementById('catCare').hidden = false;
+
 }
 
 //This Section is for the catCare div
@@ -111,8 +113,31 @@ function loadGame(e) {
         playWithCat()
     }
 }
+    function playWithCat() {
+        const inputImage = document.getElementById("catImgId").querySelector('img');
+        const outputImage = document.createElement('canvas');
+        outputImage.width = inputImage.naturalWidth;
+        outputImage.height = inputImage.naturalHeight;
+        outputImage.id = 'reverseImg';
+        outputImage.hidden = true;
+        const ctx = outputImage.getContext('2d');
+        ctx.scale(-1, 1);
+        ctx.drawImage(inputImage, -outputImage.width, 0);
+        document.getElementById('playWithCat').appendChild(outputImage);
+    window.addEventListener("keydown", toggleCat);
+    }
 
-function playWithCat(){
-    console.log('Play With Cat Selected!')
-}
+    function toggleCat(e) { 
+        console.log(e.key)
+    
+        if ( e.key === 'ArrowRight') { 
+            document.getElementById('catImgId').hidden = true;
+            document.getElementById('reverseImg').hidden = false;
+        }
+        
+        else if (e.key === 'ArrowLeft') {
+            document.getElementById('reverseImg').hidden = true;
+            document.getElementById('catImgId').hidden = false;
+        }
+    }
 
