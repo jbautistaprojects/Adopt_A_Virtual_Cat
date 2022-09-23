@@ -40,10 +40,12 @@ function renderCat(cats) {
     if (selectTag === 'See All Cats') {
     cats.forEach(cats => {
     const imgCats = document.createElement('img');
+    const catImgSection =document.createElement('div');
         imgCats.src = `https://cataas.com/cat/${cats.id}`;
         imgCats.id = `${cats.id}`
         imgCats.addEventListener('click', selectAndDelete);
-        appendCatImg.appendChild(imgCats);
+        appendCatImg.appendChild(catImgSection);
+        catImgSection.appendChild(imgCats);
 
     })}
    //renders cat images by tag 
@@ -55,10 +57,12 @@ function renderCat(cats) {
          })
          selectedCats.forEach(selectedCats => {
             const imgCats = document.createElement('img');
+            const catImgSection =document.createElement('div');
                 imgCats.id = selectedCats.id
                 imgCats.src = `https://cataas.com/cat/${selectedCats.id}`;
                 imgCats.addEventListener('click', selectAndDelete);
-                appendCatImg.appendChild(imgCats);
+                appendCatImg.appendChild(catImgSection);
+                catImgSection.appendChild(imgCats);
 
             })
          //console.log('filtered cats', selectedCats)
@@ -117,7 +121,7 @@ function loadGame(e) {
         petTheCatImg.addEventListener('click', petTheCat) 
     }
     else if (pickGame === 'feedCat'){
-        
+
     }
 }
 
