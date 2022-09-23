@@ -114,9 +114,9 @@ function loadGame(e) {
     }
     else if (pickGame === 'petTheCat'){
         const petTheCatImg = document.getElementById("catImgId").querySelector('img');
-        petTheCatImg.addEventListener('click', petTheCat)
-        
-            
+        petTheCatImg.addEventListener('click', petTheCat) 
+    }
+    else if (pickGame === 'feedCat'){
         
     }
 }

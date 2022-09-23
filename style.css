@@ -1,6 +1,10 @@
 .catImg {
     position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
+
   }
   
   .image {
@@ -52,3 +56,27 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, orange, blue);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#pageDef {
+    text-align: center;
+}
+
+#pickCat {
+    text-align: center;
+}
+
+#catCare {
+    text-align: center;
+}
